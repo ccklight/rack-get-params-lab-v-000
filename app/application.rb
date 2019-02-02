@@ -11,14 +11,14 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-binding.pry
+
     if req.path.match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
       end
 
     elsif req.path.match(/cart/)
-binding.pry
+
       if @@cart.empty?
         resp.write "Your cart is empty."
       else
